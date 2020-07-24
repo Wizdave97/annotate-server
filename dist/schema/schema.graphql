@@ -1,0 +1,26 @@
+
+type Query {
+    annotations (accountId: Int!, page: Int!): Annotations!
+    activeSessions (accountId: Int!): [ActiveSessionObj!]
+}
+
+type Mutation {
+    createAnnotation (annotation: String!, sessionId: String!, accountId: Int!): Annotation!
+}
+
+type Annotation {
+    sessionId: String!
+    annotation: String!
+    accountId: Int!
+}
+
+type Annotations {
+    annotations: [Annotation!]!
+    nexPage: Int
+}
+
+type ActiveSessionObj {
+    sessionId: String!
+    members: [String!]!
+    annotations: String!
+}

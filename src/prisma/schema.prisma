@@ -1,0 +1,18 @@
+// 1
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://annotation-db-user:123.456@localhost:5432/annotation-db"
+}
+
+// 2
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Annotation {
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now())
+  annotation String
+  sessionId  String
+  accountId  Int
+}

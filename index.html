@@ -1,0 +1,11 @@
+<script src="http://localhost:4000/socket.io/socket.io.js"></script>
+<script>
+  var socket = io("ws://localhost:4000");
+  socket.on('connect', () => {
+  // either with send()
+  socket.send('Hello!');
+
+  // or with emit() and custom event names
+  socket.emit('salutations', 'Hello!', { 'mr': 'john' }, Uint8Array.from([1, 2, 3, 4]));
+});
+</script>
